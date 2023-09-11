@@ -1,0 +1,66 @@
+Title: DACA "Flowchart"
+Author: Benjamin Lieu
+Description: Flowchart for Coding the Law mission 1
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://suffolklitlab.org/howto/qna/images/maxheadroom.gif');"></div>
+<h2 style="text-align:center;">DACA "Flowchart"</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/#mission">class project</a>. You should not rely on it as a source of legal information!</b></p>
+<p>Answer the following questions to see if someone qualifies for DACA.</p>
+
+Q(1): Is your birthday on or after June 16, 1981?
+A: Yes
+	Q(1.1): GOTO:2
+A: No
+	Q(1.2): GOTO:6
+Q(2): Did you enter the United States before your 16th birthday?
+A: Yes
+	Q(2.1):GOTO:3
+A: No
+	Q(2.2): GOTO:6
+Q(3):Were you in the United States on June 15, 2012?
+A: Yes
+	Q(3.1):GOTO:4
+A: No
+	Q(3.2):GOTO:6
+Q(4): Have you continuously resided in the United States since June 15, 2007?
+A: Yes
+	Q(4.1):GOTO:5
+A: No
+	Q(4.2):GOTO:6
+Q(5): Were you out of status on June 15, 2012?
+A: Yes
+	Q(5.1): GOTO:8
+A: No
+	Q(5.2):GOTO:6
+
+Q(6): You are not eligible for DACA.
+Q(7): You are eligible for DACA.
+
+Q(8): Have you been convicted of a felony or a significant misdemeanor?
+A: Yes
+	Q(8.1): GOTO:6
+A: No
+	Q(8.2): GOTO:9
+Q(9): Have you been convicted of a felony or a significant misdemeanor?
+A: Yes
+	Q(9.1): GOTO:6
+A: No
+	Q(9.2): GOTO:10
+Q(10): Have you been convicted of a felony or a significant misdemeanor?
+A: Yes
+	Q(10.1): GOTO:6
+A: No
+	Q(10.2): GOTO:11
+Q(11): Are you currently in school?
+A: Yes
+	Q(11.1): GOTO:7
+A: No
+	Q(11.2): Do you have a High school Diploma or GED?
+	A: Yes
+		Q(11.2.1): GOTO:7
+	A: No
+		Q(11.2.2): Are you an honorably discharged veteran of the Coast Guard or Armed Forces of the United States?
+		A: Yes
+			Q(11.2.2.1): GOTO:7
+		A: No
+			Q(11.2.2.2): GOTO:6
