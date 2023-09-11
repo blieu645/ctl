@@ -1,0 +1,218 @@
+Title: Indigency Flowchart
+Author: Benjamin Lieu
+Description: Coding the Law Mission 2 Part 1
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://suffolklitlab.org/howto/qna/images/maxheadroom.gif');"></div>
+<h2 style="text-align:center;">Indigency "Flowchart"</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/level/2/#mission_p1">class project</a>. You should not rely on it as a source of legal information!</b></p>
+<p>Answer the following questions to see if you qualify for appointed counsel in Ohio.</p>
+
+Q(1x):Are you unable to provide payment for an attorney? 
+A:Yes
+	Q(1x.1):GOTO:4x
+A:No
+	Q(1x.2):GOTO:3x
+
+Q(2x):You ARE an indigent defendant in Ohio. GOTO:21
+
+Q(3x):You ARE NOT an indigent defendant in Ohio.
+
+Q(2xx): You ARE an indigent defendant in Ohio but may be subject to a recoupment, contribution, or partial payment program. GOTO:21
+
+Q(4x):Are you unable to provide payment for all other necessary expenses of representation?
+A:Yes
+	Q(4x.1):GOTO:5x
+A:No
+	Q(4x.2):GOTO:3x
+
+Q(5x):Are you unable to obtain an attorney for your case? 
+A:Yes
+	Q(5x.1):GOTO:6x
+A:No
+	Q(5x.2):GOTO:3x
+
+Q(6x):Are you receiving any of the public benefits below?
+A:Federal supplemental security income
+	Q(6x.1):GOTO:2x
+A:Ohio works first
+	Q(6x.2):GOTO:2x
+A:Temporary assistance to needy families
+	Q(6x.3):GOTO:2x
+A:Medicaid
+	Q(6x.4):GOTO:2x
+A:Aid to families with dependent children
+	Q(6x.5):GOTO:2x
+A:Supplemental nutrition assistance program
+	Q(6x.6):GOTO:2x
+A:Refugee cash or medical assistance
+	Q(6x.7):GOTO:2x
+A:Poverty-related veterans benefits
+	Q(6x.8):GOTO:2x
+A:No
+	Q(6x.9):GOTO:7x
+
+Q(7x):Are you committed to a public mental health facility?
+A:Yes
+	Q(7x.1):GOTO:2x
+A:No
+	Q(7x.2):GOTO:8x
+
+Q(8x):Are you incarcerated in a state penitentiary?
+A:Yes
+	Q(8x.1):GOTO:2x
+A:No
+	Q(8x.2):GOTO:10
+
+Q(10):Are you under 18 years old?
+A:Yes
+	Q(10.1):GOTO:2x
+A:No
+	Q(10.2):Has a juvenile court adjudicated you as an unruly child?
+	A:Yes
+		Q(10.2.1):Are you under 21 years old?
+		A:Yes
+			Q(10.2.1.1):GOTO:2x
+		A:No
+			Q(10.2.1.2):GOTO:11
+	A:No
+		Q(10.2.2):GOTO:2x
+Q(11):How many people are in your household?
+A[javascript:goto('one');]:1
+
+A[javascript:goto('two');]:2
+
+A[javascript:goto('three');]:3
+
+A[javascript:goto('four');]:4
+
+A[javascript:goto('five');]:5
+
+A[javascript:goto('six');]:6
+
+A[javascript:goto('seven');]:7
+
+A[javascript:goto('eight');]:8
+
+A[javascript:goto('more');]:More than 8
+
+
+Q(one):Is your household income less than $27,337.50?
+A:Yes
+	Q(one.1):GOTO:2xx
+A:No
+	Q(one.2):Is your household income after deducting basic living expenses below $18,225?
+	A:Yes
+		Q(one.2.1):GOTO:2xx
+	A:No
+		Q(one.2.2):GOTO:3x
+
+Q(two):Is your household income less than $36,412.50?
+A:Yes
+	Q(two.1):GOTO:2xx
+A:No
+	Q(two.2):Is your household income after deducting basic living expenses below $24,275?
+	A:Yes
+		Q(two.2.1):GOTO:2xx
+	A:No
+		Q(two.2.2):GOTO:3x
+
+Q(three):Is your household income less than $46,612.50?
+A:Yes
+	Q(three.1):GOTO:2xx
+A:No
+	Q(three.2):Is your household income after deducting basic living expenses below $31,075?
+	A:Yes
+		Q(three.2.1):GOTO:2xx
+	A:No
+		Q(three.2.2):GOTO:3x
+
+Q(four):Is your household income less than $56,250?
+A:Yes
+	Q(four.1):GOTO:2xx
+A:No
+	Q(four.2):Is your household income after deducting basic living expenses below $37,500?
+	A:Yes
+		Q(four.2.1):GOTO:2xx
+	A:No
+		Q(four.2.2):GOTO:3x
+
+Q(five):Is your household income less than $65,887.50?
+A:Yes
+	Q(five.1):GOTO:2xx
+A:No
+	Q(five.2):Is your household income after deducting basic living expenses below $43,925?
+	A:Yes
+		Q(five.2.1):GOTO:2xx
+	A:No
+		Q(five.2.2):GOTO:3x
+
+Q(six):Is your household income less than $75,525?
+A:Yes
+	Q(six.1):GOTO:2xx
+A:No
+	Q(six.2):Is your household income after deducting basic living expenses below $50,350?
+	A:Yes
+		Q(six.2.1):GOTO:2xx
+	A:No
+		Q(six.2.2):GOTO:3x
+
+Q(seven): Is your household income less than $85,162.50?
+A:Yes
+	Q(seven.1):GOTO:2xx
+A:No
+	Q(seven.2):Is your household income after deducting basic living expenses below $56,775?
+	A:Yes
+		Q(seven.2.1):GOTO:2xx
+	A:No
+		Q(seven.2.2):GOTO:3x
+
+Q(eight): Is your household income less than $94,800?
+A:Yes
+	Q(eight.1):GOTO:2xx
+A:No
+	Q(eight.2):Is your household income after deducting basic living expenses below $63,200?
+	A:Yes
+		Q(eight.2.1):GOTO:2xx
+	A:No
+		Q(eight.2.2):GOTO:3x
+
+Q(more): Add $9,637.50 for each family member to $94,800. Is your household income below that number?
+A:Yes
+	Q(more.1):GOTO:2xx
+A:No
+	Q(more.2):Add $6,425 for each family member to $63,200. Is your household income after deducting basic living expenses below that number?
+	A:Yes
+		Q(more.2.1):GOTO:2xx
+	A:No
+		Q(more.2.2):GOTO:3x
+
+Q(21):Are you incarcerated in a state institution?
+A:Yes
+	Q(21.1):Are you charged with a felony?
+	A:Yes
+		Q(21.1.1):GOTO:22
+	A:No
+		Q(21.1.2):Are you claiming wrongful imprisonment or detention?
+		A:Yes
+			Q(21.1.2.1):GOTO:24
+		A:No
+			Q(21.1.2.2):GOTO:23
+A:No
+	Q(21.2):Are you charged with a felony?
+	A:Yes
+		Q(21.2.1):GOTO:22
+	A:No
+		Q(21.2.2):Are you charged with a misdemeanor?
+		A:Yes
+			Q(21.2.2.1):GOTO:22
+		A:No
+			Q(21.2.2.2):GOTO:23
+
+Q(22):Does punishment involve potential jail time?
+A:Yes
+	Q(22.1):GOTO:24
+A:No
+	Q(22.2):GOTO:23
+
+Q(23): You ARE NOT entitled to a public defender in Ohio.
+Q(24): You ARE entitled to a public defender in Ohio.
