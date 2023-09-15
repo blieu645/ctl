@@ -1,0 +1,156 @@
+Title: Indigency Flowchart
+Author: Benjamin Lieu
+Description: Coding the Law Mission 2 Part 2
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://suffolklitlab.org/howto/qna/images/maxheadroom.gif');"></div>
+<h2 style="text-align:center;">Indigency "Flowchart"</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/level/2/#mission_p1">class project</a>. You should not rely on it as a source of legal information!</b></p>
+<p>Answer the following questions to see if you qualify for appointed counsel in Ohio.</p>
+
+After:
+<script>
+function fedpov(house,income,percentage){
+	// Determines if your income is less than or equal to
+	// a percentage of the 2023 federal poverty guidelines
+	// for the contiguous United States. See
+	// https://aspe.hhs.gov/poverty-guidelines
+
+		var line = NaN;
+
+		if (house == 1) {
+			line = 14580;
+		} else if (house == 2) {
+			line = 19720;
+		} else if (house == 3) {
+			line = 24860;
+		} else if (house == 4) {
+			line = 30000;
+		} else if (house == 5) {
+			line = 35140;
+		} else if (house == 6) {
+			line = 40280;
+		} else if (house == 7) {
+			line = 45420;
+		} else if (house == 8) {
+			line = 50560;
+		} else if (house > 8) {
+			line = 50560 + (house-8)*5140;
+		}
+
+		if (income <= (line*(percentage/100))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+
+
+Q(1):Are you unable to provide payment for an attorney? 
+A:Yes
+	Q(1.1):GOTO:house
+A:No
+	Q(1.2):GOTO:3
+
+Q(2):You ARE an indigent defendant in Ohio. GOTO:11
+
+Q(3):You ARE NOT an indigent defendant in Ohio.
+
+Q(4): You ARE an indigent defendant in Ohio but may be subject to a recoupment, contribution, or partial payment program. GOTO:11
+
+Q(5):Are you unable to provide payment for all other necessary expenses of representation?
+A:Yes
+	Q(5.1):GOTO:6
+A:No
+	Q(5.2):GOTO:3
+
+Q(6):Are you unable to obtain an attorney for your case? 
+A:Yes
+	Q(6.1):GOTO:7
+A:No
+	Q(6.2):GOTO:3
+
+Q(7):Are you receiving any of the public benefits below?
+A:Federal supplemental security income
+	Q(7.1):GOTO:2
+A:Ohio works first
+	Q(7.2):GOTO:2
+A:Temporary assistance to needy families
+	Q(7.3):GOTO:2
+A:Medicaid
+	Q(7.4):GOTO:2
+A:Aid to families with dependent children
+	Q(7.5):GOTO:2
+A:Supplemental nutrition assistance program
+	Q(7.6):GOTO:2
+A:Refugee cash or medical assistance
+	Q(7.7):GOTO:2
+A:Poverty-related veterans benefits
+	Q(7.8):GOTO:2
+A:No
+	Q(7.9):GOTO:8
+
+Q(8):Are you committed to a public mental health facility?
+A:Yes
+	Q(8.1):GOTO:2
+A:No
+	Q(8.2):GOTO:9
+
+Q(9):Are you incarcerated in a state penitentiary?
+A:Yes
+	Q(9.1):GOTO:2
+A:No
+	Q(9.2):GOTO:10
+
+Q(10):Are you under 18 years old?
+A:Yes
+	Q(10.1):GOTO:2
+A:No
+	Q(10.2):Has a juvenile court adjudicated you as an unruly child?
+	A:Yes
+		Q(10.2.1):Are you under 21 years old?
+		A:Yes
+			Q(10.2.1.1):GOTO:2
+		A:No
+			Q(10.2.1.2):GOTO:11
+	A:No
+		Q(10.2.2):GOTO:11
+
+Q(11):Are you incarcerated in a state institution?
+A:Yes
+	Q(11.1):Are you charged with a felony?
+	A:Yes
+		Q(11.1.1):GOTO:12
+	A:No
+		Q(11.1.2):Are you claiming wrongful imprisonment or detention?
+		A:Yes
+			Q(11.1.2.1):GOTO:14
+		A:No
+			Q(11.1.2.2):GOTO:13
+A:No
+	Q(11.2):Are you charged with a felony?
+	A:Yes
+		Q(11.2.1):GOTO:12
+	A:No
+		Q(11.2.2):Are you charged with a misdemeanor?
+		A:Yes
+			Q(11.2.2.1):GOTO:12
+		A:No
+			Q(11.2.2.2):GOTO:13
+
+Q(12):Does punishment involve potential jail time?
+A:Yes
+	Q(12.1):GOTO:14
+A:No
+	Q(12.2):GOTO:13
+
+Q(13):You ARE NOT entitled to a public defender in Ohio.
+Q(14):You ARE entitled to a public defender in Ohio.
+
+
+Q(house): How many people are in your household?
+X:number
+	Q(income): How much income does your household bring in per year in after tax dollars?
+	X[javascript:if (fedpov(getvar('house'),getvar('income'),187.5)){ goto('2') } else { goto('incomed') } ]:number
+Q(incomed): How much income does your household bring in per year in after tax dollars?
+X[javascript:if (fedpov(getvar('house'),getvar('incomed'),125)){ goto('4') } else { goto('3') } ]:number
